@@ -150,6 +150,8 @@ console.log("=== SIMULASI FUNCTION ===");
 console.log("Total Poin Pelanggan B: " + POIN_PELANGGAN_B + " | Tier: " + TIER_PELANGGAN_B);
 console.log("Total Poin Pelanggan C: " + POIN_PELANGGAN_C + " | Tier: " + TIER_PELANGGAN_C);
 
+// Fitur Aktivitas 4 dan 5 siap dieksekusi
+
 // ============================================================
 // AKTIVITAS 6: Array & For Loop — Daftar Menu Rekomendasi
 // ============================================================
