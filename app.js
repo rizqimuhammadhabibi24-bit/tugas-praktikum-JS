@@ -21,123 +21,155 @@
 // ============================================================
 // AKTIVITAS 1: Setup Berkas & Integrasi JavaScript Eksternal
 // ============================================================
-// Menampilkan judul sistem ke tab Console (F12)
+// mencetak sebuah nilai = console.log("Teks")
 console.log("=== SISTEM POIN MEMBER KEDAI KOPI ===");
 
-// TODO 1: Tulis satu baris console.log() untuk memastikan file app.js sudah terhubung!
-// Contoh output: "Skrip app.js berhasil terhubung!"
-
-
-
+// Menandakan Javascript Terhubung!
+console.log("Skrip app.js berhasil terhubung!");
 
 // ============================================================
 // AKTIVITAS 2: Variabel & Dialog Interaktif
 // ============================================================
 
-// ---- BAGIAN 2A: VARIABEL IDENTITAS KEDAI KOPI ----
-// TODO 2A:
-// 1. Buat konstanta "NAMA_KEDAI" bertipe string (misal: "Kopi PSTI Kampus").
-// 2. Buat variabel "namaKasir" (misal: "Kak Eko") dan "shiftKerja" menggunakan "let".
-// 3. Cetak nilai NAMA_KEDAI, namaKasir, dan shiftKerja ke Console menggunakan console.log().
+// Variabel "const" = Konstanta sifatnya Tetap dan tidak bisa diubah
+const NAMA_KEDAI = "Kopi PSTI Kampus"; 
 
+// Variabel Let = "let" digunakan untuk nilai yang bisa berubah sewaktu-waktu
+let NAMA_KASIR = "Kang Eko"; 
+let SHIFT_KERJA = "Shift Sore";
 
+// Cetak nilai dari variabel let dan variabel const 
+console.log("Nama Kedai : " + NAMA_KEDAI);
+console.log("Nama Kasir : " + NAMA_KASIR);
+console.log("Shift Kerja : " + SHIFT_KERJA);
 
+// DEMO Perbedaan variabel const dan let 
+NAMA_KASIR = "Kak Adelio"; // NAMA_KASIR variabel let diubah
+console.log("Kasir Baru (Setelah diubah dengan variabel let): " + NAMA_KASIR);
 
-// ---- DEMO PERBEDAAN LET vs CONST ----
-// TODO 2B:
-// Ubah (re-assign) nilai variabel "namaKasir" dengan nama kasir lain,
-// lalu cetak ke Console untuk membuktikan bahwa variabel "let" nilainya dapat diubah.
+// Input Interaktif 
+// alert ini berfungsi sebagai penampil dialog pop up
+alert("Selamat Datang di Sistem Poin " + NAMA_KEDAI + "!");
 
+let NAMA_PELANGGAN = prompt("Halo! Masukkan Nama Kamu Untuk Memulai : ");
 
-
-
-// ---- BAGIAN 2B: INPUT INTERAKTIF & PENGANDAIAN DASAR ----
-// TODO 2C:
-// 1. Tampilkan pop-up salam pembuka selamat datang menggunakan alert().
-// 2. Tampilkan dialog prompt() untuk meminta nama pengunjung, simpan hasilnya ke variabel "namaPelanggan".
-// 3. Gunakan percabangan "if - else":
-//    - JIKA namaPelanggan ada isinya: tampilkan alert sapaan dan log ke console.
-//    - JIKA namaPelanggan kosong / klik Cancel: beri nilai default "Pelanggan Setia" dan tampilkan alert pemberitahuan.
-
-
-
+// Conditional Statement IF, ELSE IF, ELSE
+// "Jika NAMA_PELANGGAN ada isinya" jalankan blok atas, jika kosong blok bawah
+if (NAMA_PELANGGAN) {
+    alert("Halo, " + NAMA_PELANGGAN + "! Yuk kita hitung poin member kamu.");
+    console.log("Pelanggan aktif: " + NAMA_PELANGGAN);
+} else {
+    alert("Kamu tidak memasukkan nama. Kamu dipanggil Pelanggan Setia");
+    NAMA_PELANGGAN = "Pelanggan Setia"; 
+    console.log("Pelanggan aktif: " + NAMA_PELANGGAN);
+}
 
 // ============================================================
 // AKTIVITAS 3: Operasi Aritmatika — Akumulasi Poin Transaksi
 // ============================================================
-// Catatan: Gunakan bilangan bulat (integer murni tanpa desimal/float).
+// Operasi Aritmatika - Hitung Poin (Bilangan bulat tanpa desimal)
+let POIN_KOPI = 45;
+let POIN_MAKANAN = 35;
+let POIN_MERCHANDISE = 20;
 
-// TODO 3:
-// 1. Buat 3 variabel poin transaksi: "poinKopi", "poinMakanan", dan "poinMerchandise"
-//    (isi dengan angka bulat bebas, misal: 45, 35, 20).
-// 2. Buat variabel "totalPoin" yang menjumlahkan ketiga variabel poin di atas.
-// 3. Cetak rincian perolehan poin dan totalPoin ke Console menggunakan console.log().
+// Jumlahkan Nilai Poin
+let TOTAL_POIN = POIN_KOPI + POIN_MAKANAN + POIN_MERCHANDISE;
 
-
-
+// Cetak nilai nya / output 
+console.log("=== RINCIAN POIN: " + NAMA_PELANGGAN + " ===");
+console.log("Poin Kopi        : " + POIN_KOPI);
+console.log("Poin Makanan     : " + POIN_MAKANAN);
+console.log("Poin Merchandise : " + POIN_MERCHANDISE);
+console.log("Total Poin       : " + TOTAL_POIN);
 
 // ============================================================
 // AKTIVITAS 4: Percabangan if-else — Penentuan Tier Membership
 // ============================================================
+// Buat Variabel Kosong -> String kosong
+let TIER_MEMBER = ""; 
+let BENEFIT = ""; 
 
-// TODO 4:
-// 1. Buat variabel "tierMember" dan "benefit" bertipe string kosong ("").
-// 2. Gunakan percabangan "if - else if - else" berdasarkan nilai "totalPoin":
-//    - totalPoin >= 100 : tierMember = "Platinum", benefit = "Diskon 20% + Gratis 1 Minuman Signature"
-//    - totalPoin >= 70  : tierMember = "Gold", benefit = "Diskon 10% di setiap transaksi"
-//    - totalPoin >= 40  : tierMember = "Silver", benefit = "Diskon 5% untuk menu minuman"
-//    - selain itu       : tierMember = "Bronze", benefit = "Member Reguler (kumpulkan poin untuk naik tier)"
-// 3. Cetak hasil tierMember dan benefit ke Console.
-// 4. Tampilkan ringkasan hasil member (nama, total poin, tier, benefit) via dialog alert().
+// Percabangan / Conditional Statement ELSE IF
+if (TOTAL_POIN >= 100) {
+    // Kondisi pertama: Poin >= 100
+    TIER_MEMBER = "Platinum";
+    BENEFIT = "Diskon 20% + Gratis 1 Minuman Signature";
+} else if (TOTAL_POIN >= 70) {
+    // Kondisi kedua: Poin 70 - 99
+    TIER_MEMBER = "Gold";
+    BENEFIT = "Diskon 10% di setiap transaksi";
+} else if (TOTAL_POIN >= 40) {
+    // Kondisi ketiga: Poin 40 - 69
+    TIER_MEMBER = "Silver";
+    BENEFIT = "Diskon 5% untuk menu minuman";
+} else {
+    // Jika semua kondisi di atas tidak terpenuhi (< 40)
+    TIER_MEMBER = "Bronze";
+    BENEFIT = "Member Reguler (kumpulkan poin untuk naik tier)";
+}
 
+// Tampilkan Nilai Percabangan
+console.log("Status Tier   : " + TIER_MEMBER);
+console.log("Benefit       : " + BENEFIT);
 
-
+// Tampilkan pop up alert ringkasan
+alert(
+    "RINGKASAN MEMBER:\n" +
+    "Nama: " + NAMA_PELANGGAN + "\n" +
+    "Total Poin: " + TOTAL_POIN + "\n" +
+    "Tier: " + TIER_MEMBER + "\n" +
+    "Benefit: " + BENEFIT
+);
 
 // ============================================================
 // AKTIVITAS 5: Function — Membuat Fungsi yang Bisa Dipakai Ulang
 // ============================================================
+// FUNCTION Cara membungkus sekumpulan kode menjadi satu blok
+function HITUNG_TOTAL_POIN(p1, p2, p3) {
+    let JUMLAH = p1 + p2 + p3;
+    return JUMLAH;
+}
 
-// TODO 5A:
-// Buat fungsi "hitungTotalPoin(p1, p2, p3)" yang menerima 3 parameter nilai poin,
-// menjumlahkannya, dan mengembalikan (return) nilai total penjumlahannya.
+function TENTUKAN_TIER_MEMBER(POIN) {
+    // Setiap baris "if" untuk menentukan tier
+    if (POIN >= 100) return "Platinum";
+    if (POIN >= 70) return "Gold";
+    if (POIN >= 40) return "Silver";
+    return "Bronze";
+}
 
+// Simulasi function untuk Pelanggan B dan C
+let POIN_PELANGGAN_B = HITUNG_TOTAL_POIN(35, 25, 20); 
+let TIER_PELANGGAN_B = TENTUKAN_TIER_MEMBER(POIN_PELANGGAN_B);
 
+let POIN_PELANGGAN_C = HITUNG_TOTAL_POIN(15, 10, 5); 
+let TIER_PELANGGAN_C = TENTUKAN_TIER_MEMBER(POIN_PELANGGAN_C);
 
-
-// TODO 5B:
-// Buat fungsi "tentukanTierMember(poin)" yang menerima 1 parameter nilai poin,
-// dan mengembalikan (return) string nama tier beserta keterangannya.
-
-
-
-
-// TODO 5C:
-// Buktikan bahwa fungsi di atas bisa dipakai ulang (reusable):
-// 1. Hitung total poin dan tentukan tier untuk simulasi Pelanggan B (misal poin: 35, 25, 20).
-// 2. Hitung total poin dan tentukan tier untuk simulasi Pelanggan C (misal poin: 15, 10, 5).
-// 3. Cetak data Pelanggan B dan C ke tab Console.
-
-
-
+// Cetak Tampilkan Console 
+console.log("=== SIMULASI FUNCTION ===");
+console.log("Total Poin Pelanggan B: " + POIN_PELANGGAN_B + " | Tier: " + TIER_PELANGGAN_B);
+console.log("Total Poin Pelanggan C: " + POIN_PELANGGAN_C + " | Tier: " + TIER_PELANGGAN_C);
 
 // ============================================================
 // AKTIVITAS 6: Array & For Loop — Daftar Menu Rekomendasi
 // ============================================================
+// ARRAY - KOTAK PENYIMPANAN YANG DIISI NILAI BANYAK
+let MENU_REKOMENDASI = [
+    "Caramel Macchiato", // Posisi ke - 0 index ke 0
+    "Kopi Susu Gula Aren", // Posisi ke - 1
+    "Croissant Butter Keju", // Posisi ke - 2
+    "Matcha Cream Latte", // Posisi ke - 3
+    "Cinnamon Roll Hangat" // Posisi ke - 4
+];
 
-// TODO 6A:
-// Buat variabel Array bernama "menuRekomendasi" yang berisi minimal 5 nama menu kopi/makanan.
+console.log("=== MENU REKOMENDASI UNTUK MEMBER ===");
 
+// Looping for 
+for (let i = 0; i < MENU_REKOMENDASI.length; i++) {
+    console.log((i + 1) + ". " + MENU_REKOMENDASI[i]);
+}
 
-
-
-// TODO 6B:
-// Gunakan perulangan "for loop" untuk mencetak setiap menu ke Console dengan format:
-// "1. Nama Menu", "2. Nama Menu", dst. Gunakan (i + 1) untuk nomor urutnya.
-
-
-
-
-// TODO 6C:
-// Cetak jumlah total menu di akhir daftar menggunakan properti ".length".
-// Akhiri program dengan: console.log("=== TUGAS MANDIRI SELESAI DENGAN SUKSES! ===");
-
+// .length - Menampilkan jumlah total item dalam Array
+console.log("-------------------------------------");
+console.log("Total Menu Favorit: " + MENU_REKOMENDASI.length + " menu");
+console.log("=== ALHAMDULILLAH BERESS ===");
