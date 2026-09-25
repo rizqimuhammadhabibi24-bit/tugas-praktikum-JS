@@ -175,3 +175,5 @@ for (let i = 0; i < MENU_REKOMENDASI.length; i++) {
 console.log("-------------------------------------");
 console.log("Total Menu Favorit: " + MENU_REKOMENDASI.length + " menu");
 console.log("=== ALHAMDULILLAH BERESS ===");
+
+// Fitur Aktivitas 6 perulangan array selesai
